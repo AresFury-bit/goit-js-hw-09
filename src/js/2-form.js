@@ -6,19 +6,17 @@ const formData ={
     email: "",
     message: "",
 }
-
-if(JSON.parse(localStorage.getItem(localStorageKey)) != null) {
-    const savedData = JSON.parse(localStorage.getItem(localStorageKey));
-    textarea.value = savedData.message;
-    form.email.value = savedData.email;
-} else {
-    console.log("Fill please all fields");
+const saveData = JSON.parse(localStorage.getItem(localStorageKey));
+if(saveData) {
+    
+    textarea.value = saveData.message;
+    form.elements.email.value = saveData.email;
 }
 
 form.addEventListener("input", (event) => {
     
     formData.message = textarea.value;
-    formData.email = form.email.value;
+    formData.email = form.elements.email.value;
     console.log(formData);
     localStorage.setItem(localStorageKey, JSON.stringify(formData));
 
@@ -27,15 +25,15 @@ form.addEventListener("input", (event) => {
 
 
 form.addEventListener("submit", (event) => {
-    if (form.email.value === "" || textarea.value === "") {
+    event.preventDefault();
+    if (form.elements.email.value.trim() === "" || textarea.value.trim() === "") {
         console.log("Please fill in all the fields!");
         return;
     }
-    event.preventDefault();
+    console.log(formData);
     localStorage.removeItem(localStorageKey);
     formData.email = "";
     formData.message = "";
     form.reset();
 })
 
-    
