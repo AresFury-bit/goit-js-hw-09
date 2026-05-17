@@ -75,41 +75,12 @@ function createMarkup(arr) {
 </li>
 `).join("")
 }
-// gallery.addEventListener("click", hendleClick);
 
-
-
-
-// with jQuery nearly the same
-//  gallery = $('.gallery').simpleLightbox();
-// gallery.on('show.simplelightbox', function () {
-
-// });
-
-
-
-
-// const lightbox = new SimpleLightbox('.gallery a', {
-//     captionsData: 'alt',
-//     captionDelay: 250,
-// });
-
-// // Якщо потрібні якісь події, вішаємо їх на створений об'єкт lightbox
-// lightbox.on('show.simplelightbox', function () {
-//     // Дія під час відкриття
-// });
 
 
 let galleryy = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
 });
-// function hendleClick(event) {
-//     event.preventDefault();
-//     if (!event.target.classList.contains("gallery-image"))
-//     {
-//         return;
-//     }
-    
-// }
+
 

@@ -21,6 +21,10 @@ addEventListener("input", (event) => {
 
 
 addEventListener("submit", (event) => {
+    if (form.email.value === "" || textarea.value === "") {
+        console.log("Please fill in all the fields!");
+        return;
+    }
     event.preventDefault();
     localStorage.removeItem(localStorageKey);
     form.reset();
